@@ -1,0 +1,4 @@
+probes:
+  - "localhost:443"
+  - "localhost:8443"
+  - "localhost:80"
