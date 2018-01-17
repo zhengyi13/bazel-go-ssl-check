@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/tls"
+	"flag"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
@@ -41,10 +42,13 @@ func probe(hp HostPort) (timestamp int64, err error) {
 }
 
 func main() {
-	conffile := "./probes.yaml"
-	data, err := ioutil.ReadFile(conffile)
+
+	confFile := flag.String("config", "./probes.yaml", "a YAML config file of host:port pairs")
+	flag.Parse()
+
+	data, err := ioutil.ReadFile(*confFile)
 	if err != nil {
-		log.Printf("ERROR cannot read file %s: %v\n", conffile, err)
+		log.Printf("ERROR cannot read file %s: %v\n", *confFile, err)
 	}
 	config := ProbeConfig{}
 	unmarerr := yaml.Unmarshal(data, &config)
