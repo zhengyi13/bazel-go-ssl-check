@@ -1,4 +1,4 @@
 probes:
-  - "localhost:443"
+  - "slashdot.org:443"
   - "localhost:8443"
   - "localhost:80"
