@@ -3,7 +3,7 @@ package main
 import (
 	"crypto/tls"
 	"flag"
-	"gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 )
