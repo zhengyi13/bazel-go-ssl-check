@@ -9,7 +9,7 @@ gazelle(
 go_library(
     name = "go_default_library",
     srcs = ["ssl_expiry.go"],
-    importpath = "github.com/example/project",
+    importpath = "github.com/zhengyi13/bazel-go-ssl-check",
     visibility = ["//visibility:private"],
     deps = [
         "@com_github_zhengyi13_prober//:go_default_library",
