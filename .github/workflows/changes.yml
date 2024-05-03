@@ -1,5 +1,5 @@
 ---
-name: changes
+name: ch-ch-changes
 
 on:
   push:
