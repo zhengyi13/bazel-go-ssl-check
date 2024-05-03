@@ -29,9 +29,11 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
-            PATH="$(dirname ${file})"
+            echo "${file} was changed"
+            PATH="${file%/*}" # https://stackoverflow.com/questions/6121091/how-to-extract-directory-path-from-file-path
+            BASENAME="${PATH##*/}"
             echo "${PATH}"
+            echo "${BASENAME}"
             if [[ "${PATH}" == "service-instances/" ]]; then
               # parse data
               jq '.' ${file}
