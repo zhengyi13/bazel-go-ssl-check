@@ -30,11 +30,11 @@ jobs:
         run: |
           for file in ${ALL_CHANGED_FILES}; do
             echo "${file} was changed"
-            PATH="${file%/*}" # https://stackoverflow.com/questions/6121091/how-to-extract-directory-path-from-file-path
-            echo "${PATH##*/}" # basename from same ^^
-            echo "${PATH}"
+            CFPATH="${file%/*}" # https://stackoverflow.com/questions/6121091/how-to-extract-directory-path-from-file-path
 
-            if [[ "${PATH}" == "service-instances" ]]; then
+            whereis jq
+            
+            if [[ "${CFPATH}" == "service-instances" ]]; then
               # parse data
               jq '.' ${file}
             fi
