@@ -33,7 +33,7 @@ If you're a little smarter than the average bear, then consider installing
 [bazel](https://bazel.io), and use that to run this little utility (and/or build
 it reproducibly and hermetically):
 
-`bazel run :ssl_check -- -config='myconfig.yaml'`
+`bazel run :ssl_check -- -config $(pwd)/probes.yaml`
 
 ## Notes
 
